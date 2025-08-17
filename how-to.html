@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How To Play - Online Quiz</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <h1 class="visually-hidden">How To Use This Quiz</h1>
+    <nav aria-label="Primary" class="main-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="how-to.html" aria-current="page">How To</a></li>
+        <li><a href="topics.html">Topics</a></li>
+        <li><a href="quiz.html">Start Quiz</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <article class="howto" aria-labelledby="howto-heading">
+      <h2 id="howto-heading">How to Take the Quiz</h2>
+      <ol class="steps">
+        <li>Click "Start Quiz" to load a random set of questions.</li>
+        <li>For multiple-choice questions, select one answer then click Next.</li>
+        <li>For True/False, choose either True or False.</li>
+        <li>For fill-in-the-blank, type your answer then click Next.</li>
+        <li>You can change an answer before submitting the final question.</li>
+        <li>Submit the final question to view your score and feedback.</li>
+        <li>Review explanations for any incorrect answers.</li>
+        <li>Restart anytime to try a new random order.</li>
+      </ol>
+      <h3>Accessibility & Keyboard Shortcuts</h3>
+      <ul>
+        <li>Use Tab / Shift+Tab to move between interactive elements.</li>
+        <li>Press Enter or Space to activate buttons and choices.</li>
+        <li>Press 1-4 to quickly select an answer option (MCQ only).</li>
+      </ul>
+      <p>Your progress and score are calculated client-side. No personal data is stored.</p>
+      <a class="btn primary" href="quiz.html">Start Quiz</a>
+    </article>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <p>&copy; <span id="year"></span> Online Quiz.</p>
+  </footer>
+  <script src="assets/js/app.js" type="module"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

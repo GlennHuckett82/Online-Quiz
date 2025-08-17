@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Select Topics - Online Quiz</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <h1 class="visually-hidden">Select Quiz Topics</h1>
+    <nav aria-label="Primary" class="main-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="how-to.html">How To</a></li>
+        <li><a href="topics.html" aria-current="page">Topics</a></li>
+        <li><a href="quiz.html">Start Quiz</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <section class="topics" aria-labelledby="topics-heading">
+      <h2 id="topics-heading">Choose Topics</h2>
+      <p>Select one or more topics to include. Your selection will be used the next time you start the quiz.</p>
+      <form id="topics-form">
+        <fieldset>
+          <legend>Available Topics</legend>
+          <label><input type="checkbox" name="topic" value="music"> Music</label><br>
+          <label><input type="checkbox" name="topic" value="history"> History</label><br>
+          <label><input type="checkbox" name="topic" value="science"> Science</label><br>
+          <label><input type="checkbox" name="topic" value="maths"> Maths</label><br>
+          <label><input type="checkbox" name="topic" value="coding"> Coding</label><br>
+        </fieldset>
+        <div class="controls" style="margin-top:1rem;">
+          <button type="submit" class="btn primary">Save Topics</button>
+          <button type="button" id="clear-topics" class="btn">Clear</button>
+        </div>
+        <p id="topics-status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <p>&copy; <span id="year"></span> Online Quiz.</p>
+  </footer>
+  <script>
+    const form = document.getElementById('topics-form');
+    const statusEl = document.getElementById('topics-status');
+    const clearBtn = document.getElementById('clear-topics');
+    let stored = [];
+    try { stored = JSON.parse(localStorage.getItem('quizTopics') || '[]'); } catch { stored = []; }
+    if (Array.isArray(stored) && stored.length) {
+      [...form.elements].forEach(el => { if (el.name === 'topic' && stored.includes(el.value)) el.checked = true; });
+    }
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const selected = [...form.querySelectorAll('input[name="topic"]:checked')].map(i => i.value);
+      try { localStorage.setItem('quizTopics', JSON.stringify(selected)); }
+      catch { statusEl.textContent = 'Unable to save topics (storage unavailable).'; return; }
+      statusEl.textContent = selected.length ? `Saved ${selected.length} topic(s). Start the quiz!` : 'No topics selected. Quiz will use all questions.';
+    });
+    clearBtn.addEventListener('click', () => {
+      [...form.querySelectorAll('input[name="topic"]')].forEach(i => i.checked = false);
+      try { localStorage.removeItem('quizTopics'); }
+      catch { /* ignore */ }
+      statusEl.textContent = 'Cleared selection.';
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Online Quiz</title>
+  <meta name="description" content="Accessible online quiz application" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <h1 id="site-title">Online Quiz</h1>
+    <nav aria-label="Primary" class="main-nav">
+      <ul>
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="how-to.html">How To</a></li>
+        <li><a href="topics.html">Topics</a></li>
+        <li><a href="quiz.html">Start Quiz</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <section class="intro" aria-labelledby="intro-heading">
+      <h2 id="intro-heading">Welcome to the Quiz</h2>
+      <p>Test your knowledge with our interactive quiz. Questions are random each run. Get instant feedback and a performance summary at the end.</p>
+      <a class="btn primary" href="quiz.html">Begin Quiz</a>
+    </section>
+
+    <section class="features" aria-labelledby="features-heading">
+      <h2 id="features-heading">Features</h2>
+      <ul class="feature-list">
+        <li>Randomized questions & answers</li>
+        <li>Accessible, keyboard-friendly navigation</li>
+        <li>Multiple question types (MCQ, True/False, Fill-in)</li>
+        <li>Progress tracking & scoring</li>
+        <li>Review with explanations</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <p>&copy; <span id="year"></span> Online Quiz. All rights reserved.</p>
+  </footer>
+  <script src="assets/js/app.js" type="module"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

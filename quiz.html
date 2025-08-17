@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz - Online Quiz</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <h1 class="visually-hidden">Quiz</h1>
+    <nav aria-label="Primary" class="main-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="how-to.html">How To</a></li>
+        <li><a href="topics.html">Topics</a></li>
+        <li><a href="quiz.html" aria-current="page">Quiz</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <section class="settings" aria-labelledby="settings-heading">
+      <h2 id="settings-heading">Quiz Settings</h2>
+      <form id="settings-form" class="settings-form">
+        <label for="question-count">Number of Questions:</label>
+        <select id="question-count" name="questionCount">
+          <option value="5">5</option>
+          <option value="8">8</option>
+          <option value="10">10</option>
+          <option value="12">12</option>
+        </select>
+        <button type="submit" class="btn">Apply</button>
+      </form>
+    </section>
+
+    <section id="quiz" class="quiz" aria-live="polite">
+      <div id="quiz-header" class="quiz-header">
+        <p id="progress" class="progress" aria-live="polite"></p>
+        <p id="score" class="score" aria-live="polite"></p>
+      </div>
+      <div id="question-container" class="question-container" role="group" aria-labelledby="question-text"></div>
+      <div class="controls">
+        <button id="next-btn" class="btn" type="button" disabled>Next</button>
+        <button id="submit-btn" class="btn primary" type="button" disabled>Submit</button>
+        <button id="restart-btn" class="btn" type="button" hidden>Restart</button>
+      </div>
+    </section>
+
+    <section id="results" class="results" hidden aria-labelledby="results-heading">
+      <h2 id="results-heading">Your Results</h2>
+      <p id="summary"></p>
+      <ol id="review-list" class="review-list"></ol>
+      <button id="play-again-btn" class="btn primary" type="button">Play Again</button>
+    </section>
+
+    <section id="high-scores" class="results" aria-labelledby="highscores-heading">
+      <h2 id="highscores-heading">High Scores</h2>
+      <ol id="highscores-list"></ol>
+      <button id="clear-scores-btn" class="btn" type="button">Clear Scores</button>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <p>&copy; <span id="year"></span> Online Quiz.</p>
+  </footer>
+  <script src="assets/js/questions.js" type="module"></script>
+  <script src="assets/js/app.js" type="module"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
