@@ -296,7 +296,9 @@ function saveHighScores(scores) {
   try { localStorage.setItem('highScores', JSON.stringify(scores)); } catch { /* ignore */ }
 }
 function renderHighScores() {
-  if (!highScoresList) return;
+  if (!highScoresList) {
+    return;
+  }
   const scores = loadHighScores();
   highScoresList.innerHTML = '';
   scores.slice(0, 10).forEach(s => {
