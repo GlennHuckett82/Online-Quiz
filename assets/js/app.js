@@ -24,8 +24,7 @@ const resultsSection = document.getElementById('results');
 const summaryEl = document.getElementById('summary');
 const reviewList = document.getElementById('review-list');
 const playAgainBtn = document.getElementById('play-again-btn');
-const settingsForm = document.getElementById('settings-form');
-const questionCountSelect = document.getElementById('question-count');
+// Removed settings form (fixed quiz length)
 const highScoresList = document.getElementById('highscores-list');
 const clearScoresBtn = document.getElementById('clear-scores-btn');
 
@@ -80,7 +79,7 @@ function buildBalancedSelection(pool, topics, length) {
   return fyShuffle(selection).slice(0, length);
 }
 
-let quizLength = QUIZ_LENGTH;
+const quizLength = QUIZ_LENGTH; // fixed to 10 via questions.js
 
 function initQuiz() {
   state.topics = getSelectedTopics();
@@ -341,16 +340,7 @@ if (restartBtn) {
 if (playAgainBtn) {
   playAgainBtn.addEventListener('click', initQuiz);
 }
-if (settingsForm) {
-  settingsForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const selected = parseInt(questionCountSelect.value, 10);
-    if (!isNaN(selected) && selected > 0) {
-      quizLength = selected;
-      initQuiz();
-    }
-  });
-}
+// settings form removed
 if (clearScoresBtn) {
   clearScoresBtn.addEventListener('click', () => {
     try { localStorage.removeItem('highScores'); } catch { /* ignore */ }

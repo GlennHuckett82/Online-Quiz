@@ -138,4 +138,4 @@ export const QUESTION_BANK = [
   }
 ];
 
-export const QUIZ_LENGTH = 5; // number of questions per run (random subset)
+export const QUIZ_LENGTH = 10; // fixed number of questions per run

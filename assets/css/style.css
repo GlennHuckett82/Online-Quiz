@@ -91,8 +91,7 @@ main { width: min(900px, 100%); margin: 1rem auto 2rem; padding: 0 1rem; }
 
 .topic-tag { display:inline-block; margin:0.25rem 0 0.75rem; font-size:0.75rem; letter-spacing:0.5px; text-transform:uppercase; background:rgba(245,158,11,0.15); color:var(--color-accent); padding:0.25rem 0.5rem; border-radius:999px; }
 
-.settings-form { display:flex; gap:0.75rem; align-items:center; flex-wrap:wrap; margin-bottom:1rem; }
-.settings-form select { background:#0f1d33; color:var(--color-text); border:2px solid var(--color-accent); border-radius: var(--radius); padding:0.4rem 0.6rem; }
+/* Settings form removed (fixed question count) */
 #high-scores { margin-top:2rem; }
 #highscores-list { padding-left:1.25rem; }
 
